@@ -10,7 +10,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
 
 DB_FAISS_PATH = 'vectorstore/db_faiss'
-
+api_key = st.secrets['GEMINI_API_KEY']
 #Loading the model
 def load_llm():
     # Load the locally downloaded model here
