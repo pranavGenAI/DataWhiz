@@ -33,7 +33,7 @@ if uploaded_file :
     data = loader.load()
     #st.json(data)
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2',
-                                       model_kwargs={'device': 'gpu'})
+                                       model_kwargs={'device': 'auto'})
 
     db = FAISS.from_documents(data, embeddings)
     db.save_local(DB_FAISS_PATH)
