@@ -7,3 +7,4 @@ bitsandbytes
 transformers
 sentence_transformers
 faiss_cpu
+langchain_google_genai
