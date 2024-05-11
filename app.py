@@ -6,18 +6,15 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.llms import CTransformers
 from langchain.chains import ConversationalRetrievalChain
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+import google.generativeai as genai
 
 DB_FAISS_PATH = 'vectorstore/db_faiss'
 
 #Loading the model
 def load_llm():
     # Load the locally downloaded model here
-    llm = CTransformers(
-        model = "llama-2-7b-chat.ggmlv3.q8_0.bin",
-        model_type="llama",
-        max_new_tokens = 512,
-        temperature = 0.5
-    )
+    llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3, google_api_key=api_key)
     return llm
 
 st.title("Chat with CSV using Llama2 🦙🦜")
