@@ -14,7 +14,7 @@ def chat_with_csv(df,prompt):
     print(result)
     return result
 
-st.set_page_config(layout='wide')
+st.set_page_config(page_title="DataViz Analyst Chatbot 📊💬", layout='wide')
 
 st.title("DataViz Chatbot 📊💬")
 st.markdown('<style>h1{color: orange; text-align: center;}</style>', unsafe_allow_html=True)
