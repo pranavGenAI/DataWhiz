@@ -9,9 +9,10 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from pandasai.llm import GooglePalm
+api_key = st.secrets['GEMINI_API_KEY']
 
 def chat_with_csv(df,prompt):
-    llm = GooglePalm(api_key="AIzaSyAJT6_IYPjUtUyT14uzZ8BSON7rDul7Ab8")
+    llm = GooglePalm(api_key=api_key)
     pandas_ai = SmartDataframe(df, config={"llm": llm})
     #pandas_ai = PandasAI(llm, save_charts=True)
     result = pandas_ai.chat(prompt)
