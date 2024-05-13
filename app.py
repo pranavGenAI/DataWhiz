@@ -21,9 +21,9 @@ def chat_with_csv(df,prompt):
 
 st.set_page_config(page_title="DataViz Chatbot 📊💬", layout='wide')
 st.title("DataViz Chatbot 📊💬")
-st.markdown('<style>h1{color: orange; text-align: center;}</style>', unsafe_allow_html=True)
+st.markdown('<style>h1{color: black; text-align: center;}</style>', unsafe_allow_html=True)
 st.subheader('Your personal data analyst for data visualization! 👨🏻‍💻')
-st.markdown('<style>h3{color: pink;  text-align: center;}</style>', unsafe_allow_html=True)
+st.markdown('<style>h3{color: orange;  text-align: center;}</style>', unsafe_allow_html=True)
 
 # Upload multiple CSV files
 input_csvs = st.sidebar.file_uploader("Upload your CSV files", type=['csv'], accept_multiple_files=True)
