@@ -20,9 +20,9 @@ def chat_with_csv(df,prompt):
     return result
 
 st.set_page_config(layout='wide')
-st.title("DataWhiz Chatbot 📊💬")
+st.title("DataViz Chatbot 📊💬")
 st.markdown('<style>h1{color: orange; text-align: center;}</style>', unsafe_allow_html=True)
-st.subheader('Your personal data analyst! 👨🏻‍💻')
+st.subheader('Your personal data analyst for data visualization! 👨🏻‍💻')
 st.markdown('<style>h3{color: pink;  text-align: center;}</style>', unsafe_allow_html=True)
 
 # Upload multiple CSV files
