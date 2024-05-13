@@ -3,7 +3,7 @@ from pandasai.llm import GooglePalm
 import os
 import pandas as pd
 from pandasai import SmartDataframe
-from pandasai import PandasAI
+#from pandasai import PandasAI
 
 api_key = st.secrets['GEMINI_API_KEY']
 
