@@ -21,7 +21,7 @@ def chat_with_csv(df,prompt):
 st.set_page_config(page_title="DataViz Analyst Chatbot 📊💬", layout='wide')
 
 st.title("DataViz Chatbot 📊💬")
-st.markdown('<style>h1{color: orange; text-align: center;}</style>', unsafe_allow_html=True)
+st.markdown('<style>h1{color: Black; text-align: center;}</style>', unsafe_allow_html=True)
 st.subheader('Your personal data analyst for data visualization! 👨🏻‍💻')
 st.markdown('<style>h3{color: Orange;  text-align: center;}</style>', unsafe_allow_html=True)
 
