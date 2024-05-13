@@ -1,71 +1,53 @@
 import streamlit as st
+from pandasai.llm.openai import OpenAI
+from dotenv import load_dotenv
 import os
-from langchain.document_loaders.csv_loader import CSVLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.llms import CTransformers
-from langchain.chains import ConversationalRetrievalChain
+import pandas as pd
+#from pandasai import PandasAI
+from pandasai import SmartDataframe
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from pandasai.llm import GooglePalm
 
+def chat_with_csv(df,prompt):
+    llm = GooglePalm(api_key="AIzaSyAJT6_IYPjUtUyT14uzZ8BSON7rDul7Ab8")
+    pandas_ai = SmartDataframe(df, config={"llm": llm})
+    #pandas_ai = PandasAI(llm, save_charts=True)
+    result = pandas_ai.chat(prompt)
+    #result = pandas_ai.run(df,prompt=prompt)
+    return result
 
-def add_vertical_space(spaces=1):
-    for _ in range(spaces):
-        st.sidebar.markdown("---")
+st.set_page_config(layout='wide')
+st.title("DataWhiz Chatbot 📊💬")
+st.markdown('<style>h1{color: orange; text-align: center;}</style>', unsafe_allow_html=True)
+st.subheader('Your personal data analyst! 👨🏻‍💻')
+st.markdown('<style>h3{color: pink;  text-align: center;}</style>', unsafe_allow_html=True)
 
-def main():
-    st.set_page_config(page_title="DataWhiz 📊")
-    st.title("DataWhiz Chatbot 📊💬")
-    st.subheader("Your personal data analyst! 👨🏻‍💻")
+# Upload multiple CSV files
+input_csvs = st.sidebar.file_uploader("Upload your CSV files", type=['csv'], accept_multiple_files=True)
 
-    st.sidebar.title("DataWhiz")
+if input_csvs:
+    # Select a CSV file from the uploaded files using a dropdown menu
+    selected_file = st.selectbox("Select a CSV file", [file.name for file in input_csvs])
+    selected_index = [file.name for file in input_csvs].index(selected_file)
 
+    #load and display the selected csv file 
+    st.info("CSV uploaded successfully")
+    data = pd.read_csv(input_csvs[selected_index])
+    st.dataframe(data,use_container_width=True)
 
-    DB_FAISS_PATH = "vectorstore/db_faiss"
-    TEMP_DIR = "temp"
+    #Enter the query for analysis
+    st.info("Chat Below")
+    input_text = st.text_area("Enter the query")
 
-    if not os.path.exists(TEMP_DIR):
-        os.makedirs(TEMP_DIR)
-
-    uploaded_file = st.sidebar.file_uploader("Upload CSV file", type=['csv'])
-
-    add_vertical_space(1)
-    st.sidebar.write('Accenture S&C GN H&PS')
-
-    if uploaded_file is not None:
-        file_path = os.path.join(TEMP_DIR, uploaded_file.name)
-        with open(file_path, "wb") as f:
-            f.write(uploaded_file.getvalue())
-
-        st.write(f"Uploaded file: {uploaded_file.name}")
-        st.write("Processing CSV file...")
-
-        loader = CSVLoader(file_path=file_path, encoding="utf-8", csv_args={'delimiter': ','})
-        data = loader.load()
-
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=20)
-        text_chunks = text_splitter.split_documents(data)
-
-        st.write(f"Total text chunks: {len(text_chunks)}")
-        embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
-        docsearch = FAISS.from_documents(text_chunks, embeddings)
-        docsearch.save_local(DB_FAISS_PATH)
-
-        llm = CTransformers(model="C:/Users/pranav.baviskar/Desktop/Learning/GenAI/Datawhiz/models/llama-2-7b-chat.ggmlv3.q4_0.bin",
-                            model_type="llama",
-                            max_new_tokens=512,
-                            temperature=0.1)
-
-        qa = ConversationalRetrievalChain.from_llm(llm, retriever=docsearch.as_retriever())
-
-        st.write("Enter your query:")
-        query = st.text_input("Input Prompt:")
-        if query:
-            with st.spinner("Processing your question..."):
-                chat_history = []
-                result = qa({"question": query, "chat_history": chat_history})
-                st.write("Response:", result['answer'])
-
-        os.remove(file_path)
-
-if __name__ == "__main__":
-    main()
+    #Perform analysis
+    if input_text:
+        if st.button("Chat with csv"):
+            st.info("Your Query: "+ input_text)
+            result = chat_with_csv(data,input_text)
+            fig_number = plt.get_fignums()
+            if fig_number:
+                st.pyplot(plt.gcf())
+            else:
+                st.success(result)
