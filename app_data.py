@@ -43,4 +43,5 @@ if input_csv is not None:
                 if st.button("Chat with CSV"):
                     st.info("Your Query: "+input_text)
                     result = chat_with_csv(data, input_text)
-                    st.success(result)
+                    st.write(result)
+                    st.success("Success!")
