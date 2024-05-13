@@ -10,9 +10,9 @@ api_key = st.secrets['GEMINI_API_KEY']
 
 def chat_with_csv(df,prompt):
     llm = GooglePalm(api_key=api_key)
-    pandas_ai = PandasAI(llm)
-    result = pandas_ai.run(df, prompt=prompt)
-    print(result)
+    pandas_ai = SmartDataframe(df, config={"llm": llm})
+    #pandas_ai = PandasAI(llm, save_charts=True)
+    result = pandas_ai.chat(prompt)
     return result
 
 st.set_page_config(page_title="DataViz Analyst Chatbot 📊💬", layout='wide')
