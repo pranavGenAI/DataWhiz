@@ -50,6 +50,7 @@ if input_csvs:
             fig_number = plt.get_fignums()
             if fig_number:
                 st.pyplot(plt.gcf())
+                st.write(result)
             else:
                 st.write(result)
                 st.success("Success!!!")
