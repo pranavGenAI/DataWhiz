@@ -43,5 +43,10 @@ if input_csv is not None:
                 if st.button("Chat with CSV"):
                     st.info("Your Query: "+input_text)
                     result = chat_with_csv(data, input_text)
-                    st.write(result)
-                    st.success("Success!")
+                    fig_number = plt.get_fignums()
+                    if fig_number:
+                        st.pyplot(plt.gcf())
+                        st.write(result)
+                    else:
+                        st.write(result)
+                        st.success("Success!!!")
