@@ -64,11 +64,12 @@ st.markdown('''<style>
         50% {background-position: 100% 100%;}
         100% {background-position: 0% 0%;}
     }
+    
     [data-testid=stAlert] {
         background: linear-gradient(45deg, #c9024b 45%, #ba0158 55%, #cd006d 70%);
         color: white;
-        border:none;
     }
+    
     div.stButton > button:first-child {
         background:linear-gradient(45deg, #c9024b 45%, #ba0158 55%, #cd006d 70%);
         color: white;
