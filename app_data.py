@@ -38,7 +38,7 @@ st.markdown("""
         .animated-gradient-text {
             font-family: "Graphik Black";
             font-size: 42px;
-            background: linear-gradient(to right, #7953cd 20%, #00affa 30%, #0190cd 70%, #764ada 80%);
+            background: linear-gradient(to right, #7953cd 60%, #00affa 10%, #0190cd 20%, #764ada 20%);
             background-size: 300% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
