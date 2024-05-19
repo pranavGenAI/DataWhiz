@@ -20,10 +20,35 @@ def chat_with_csv(df,prompt):
 
 st.set_page_config(page_title="DataViz Analyst Chatbot 📊💬", layout='wide')
 
-st.title("DataViz Chatbot 📊💬")
-st.markdown('<style>h1{color: Black; text-align: center;}</style>', unsafe_allow_html=True)
-st.subheader('Your personal data analyst for data visualization! 👨🏻‍💻')
-st.markdown('<style>h3{color: Orange;  text-align: center;}</style>', unsafe_allow_html=True)
+st.markdown("""
+    <style>
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animated-gradient-text {
+            font-family: "Graphik Semibold";
+            font-size: 42px;
+            background: linear-gradient(45deg, rgb(245, 58, 126) 30%, rgb(200, 1, 200) 55%, rgb(197, 45, 243) 20%);
+            background-size: 300% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientAnimation 10s ease-in-out infinite;
+        }
+    </style>
+    <p class="animated-gradient-text">
+        DataViz: Your personal data analyst!
+    </p>
+""", unsafe_allow_html=True)
+
 
 input_csv = st.file_uploader("Upload your CSV file", type=['csv'])
 
