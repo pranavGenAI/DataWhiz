@@ -66,7 +66,7 @@ st.markdown('''<style>
     }
     
     [data-testid=stAlert] {
-        background: linear-gradient(45deg, #f2f2f2 45%, #f2f2f2 55%, #ffffff 70%);
+        background: linear-gradient(180deg, #ffffff 45%, #ffffff 55%, #ffffff 70%);
         color: black;
     }
     
