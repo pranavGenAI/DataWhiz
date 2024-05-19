@@ -54,7 +54,7 @@ st.markdown('''<style>
         background-color: transparent;
     }
     .stApp {
-        background: linear-gradient(45deg, #0a1621 20%, #0E1117 45%, #0E1117 55%, #3a5683 90%);
+        background: linear-gradient(45deg, #FFFFFF 20%, #FFFFFF 45%, #DAE3F3 55%, #53CEEB 90%);
         animation: my_animation 20s ease infinite;
         background-size: 200% 200%;
         background-attachment: fixed;
