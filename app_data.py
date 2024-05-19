@@ -55,15 +55,18 @@ st.markdown('''<style>
         background-color: transparent;
     }
     .stApp {
-        background: linear-gradient(45deg, #FFFFFF 30%,#F4E2E6 15%, #FAE9D3 55%, #F2C3CA 90%);
+        background: linear-gradient(45deg, #FFFFFF 40%, #FAE9D3 60%, #e7abb4 80%);
         animation: my_animation 20s ease infinite;
         background-size: 200% 200%;
         background-attachment: fixed;
     }
+    
+    
+    
     @keyframes my_animation {
         0% {background-position: 0% 0%;}
-        50% {background-position: 100% 100%;}
-        100% {background-position: 0% 0%;}
+        80% {background-position: 80% 80%;}
+    
     }
     
     [data-testid=stAlert] {
