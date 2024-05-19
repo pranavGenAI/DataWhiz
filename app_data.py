@@ -19,7 +19,7 @@ def chat_with_csv(df,prompt):
     return result
 
 st.set_page_config(layout='wide')
-st.image("https://www.vgen.it/wp-content/uploads/2021/04/logo-accenture-ludo.png", width=150)
+st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Accenture_logo.svg/1200px-Accenture_logo.svg.png", width=150)
 st.markdown("")
 st.markdown("""
     <style>
