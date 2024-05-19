@@ -66,8 +66,8 @@ st.markdown('''<style>
     }
     
     [data-testid=stAlert] {
-        background: linear-gradient(45deg, #c9024b 45%, #ba0158 55%, #cd006d 70%);
-        color: white;
+        background: linear-gradient(45deg, #FFFFFF 45%, #FFFFFF 55%, #FFFFFF 70%);
+        color: black;
     }
     
     div.stButton > button:first-child {
