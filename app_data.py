@@ -75,7 +75,7 @@ st.markdown('''<style>
     }
     
     div.stButton > button:first-child {
-        background:linear-gradient(45deg, #E95C85 45%, #ba0158 55%, #C853AC 70%);
+        background:linear-gradient(45deg, #E95C85 45%, #C853AC 70%);
         color: white;
         border: none;
     }
