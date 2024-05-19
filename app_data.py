@@ -19,7 +19,8 @@ def chat_with_csv(df,prompt):
     return result
 
 st.set_page_config(layout='wide')
-
+st.image("https://www.vgen.it/wp-content/uploads/2021/04/logo-accenture-ludo.png", width=150)
+st.markdown("")
 st.markdown("""
     <style>
         @keyframes gradientAnimation {
