@@ -64,7 +64,7 @@ st.markdown('''<style>
         50% {background-position: 100% 100%;}
         100% {background-position: 0% 0%;}
     }
-    [data-testid=stSidebar] {
+    [data-testid=stAlert] {
         background: linear-gradient(360deg, #1a2631 95%, #161d29 10%);
     }
     div.stButton > button:first-child {
@@ -80,6 +80,7 @@ st.markdown('''<style>
         position:relative;
         top:3px;
     }    
+    
 
     </style>''', unsafe_allow_html=True)
 
