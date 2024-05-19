@@ -38,7 +38,7 @@ st.markdown("""
         .animated-gradient-text {
             font-family: "Graphik Black";
             font-size: 42px;
-            background: linear-gradient(to right, #7953cd 60%, #00affa 10%, #0190cd 20%, #764ada 20%);
+            background: linear-gradient(to right, #7953cd 20%, #00affa 30%, #0190cd 70%, #764ada 80%);
             background-size: 300% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -55,7 +55,7 @@ st.markdown('''<style>
         background-color: transparent;
     }
     .stApp {
-        background: linear-gradient(45deg, #FFFFFF 40%,#F4E2E6 20%, #FAE9D3 20%, #F2C3CA 80%);
+        background: linear-gradient(45deg, #FFFFFF 10%,#F4E2E6 45%, #FAE9D3 55%, #F2C3CA 90%);
         animation: my_animation 20s ease infinite;
         background-size: 200% 200%;
         background-attachment: fixed;
