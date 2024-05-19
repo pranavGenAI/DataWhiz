@@ -19,7 +19,7 @@ def chat_with_csv(df,prompt):
     #result = pandas_ai.run(df,prompt=prompt)
     return result
 
-st.set_page_config(page_title="DataViz Chatbot 📊💬", layout='wide')
+st.set_page_config( layout='wide')
 st.markdown("""
     <style>
         @keyframes gradientAnimation {
