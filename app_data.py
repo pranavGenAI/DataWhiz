@@ -18,7 +18,7 @@ def chat_with_csv(df,prompt):
     result = pandas_ai.chat(prompt)
     return result
 
-st.set_page_config(page_title="DataViz Analyst Chatbot 📊💬", layout='wide')
+st.set_page_config(layout='wide')
 
 st.markdown("""
     <style>
