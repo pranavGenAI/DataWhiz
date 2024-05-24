@@ -61,8 +61,6 @@ st.markdown('''<style>
         background-attachment: fixed;
     }
     
-    
-    
     @keyframes my_animation {
         0% {background-position: 0% 0%;}
         80% {background-position: 80% 80%;}
@@ -79,16 +77,16 @@ st.markdown('''<style>
         color: white;
         border: none;
     }
+    
     div.stButton > button:hover {
         background:linear-gradient(45deg, #ce026f 45%, #970e79 55%, #6c028d 70%);
         background-color:#ce1126;
     }
+    
     div.stButton > button:active {
         position:relative;
         top:3px;
     }    
-    
-
     </style>''', unsafe_allow_html=True)
 
 
