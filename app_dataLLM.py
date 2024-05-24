@@ -29,19 +29,19 @@ def chat_with_csv(df,prompt):
 #-----------------------------------------------------Written response-----------------------------------------------------------------#
 
 def get_conversational_chain():
-    prompt_template = """
-    Use the data provided and the user question to frame the answer as accurate as possible. Use the fromatting. If you can not find the relevant response then generate blank output. Do not give wrong asnwers.
-    Now answer the question using the provided information:
-    Data: {context}
-    User Question: {question}
-    Answer: 
-    """
-    model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3, google_api_key=api_key)
-    prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
-    print("Prompt ***** --->", prompt)
-    chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
+    # prompt_template = """
+    # Use the data provided and the user question to frame the answer as accurate as possible. Use the fromatting. If you can not find the relevant response then generate blank output. Do not give wrong asnwers.
+    # Now answer the question using the provided information:
+    # Data: {context}
+    # User Question: {question}
+    # Answer: 
+    # """
+    # model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3, google_api_key=api_key)
+    # prompt = PromptTemplate(template=prompt_template)
+    # print("Prompt ***** --->", prompt)
+    # chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
   
-    return chain
+    # return chain
   
 #-------------------------------------------------------------------------------------------------------------------------------------#
 
@@ -139,8 +139,20 @@ if input_csv is not None:
                     st.info("Your Query: "+input_text)
                     result = chat_with_csv(data, input_text)
                     question = input_text
-                    chain = get_conversational_chain()
-                    response = chain({"question": question, "input_documents": result}, return_only_outputs=True)
+                    prompt_template = f"""
+                    Use the data provided and the user question to frame the answer as accurate as possible. Use the fromatting. If you can not find the relevant response then generate blank output. Do not give wrong asnwers.
+                    Now answer the question using the provided information:
+                    Data: {result}
+                    User Question: {question}
+                    Answer: 
+                    """
+                    model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.3, google_api_key=api_key)
+                    prompt = PromptTemplate(template=prompt_template)
+                    print("Prompt ***** --->", prompt)
+                    chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
+                    
+                    # chain = get_conversational_chain()
+                    response = chain(return_only_outputs=True)
                     print('response is here......',response["output_text"])
                     st.write("Analysis: ", response["output_text"])
 
