@@ -3,10 +3,22 @@ from pandasai.llm import GooglePalm
 import os
 import pandas as pd
 from pandasai import SmartDataframe
-#from pandasai import PandasAI
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
+import base64
+from PyPDF2 import PdfReader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains.question_answering import load_qa_chain
+from langchain.prompts import PromptTemplate
+from langchain_community.vectorstores import FAISS
+from langchain.chains import LLMChain
+import time
+
 
 api_key = st.secrets['GEMINI_API_KEY']
 
