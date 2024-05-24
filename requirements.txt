@@ -206,9 +206,3 @@ yarl==1.9.4
 google-ai-generativelanguage==0.6.2
 google-api-core==2.19.0
 google-api-python-client==2.127.0
-langchain==0.1.17
-langchain-community==0.0.36
-langchain-core==0.1.50
-langchain-google-genai==1.0.3
-langchain-openai==0.1.5
-langchain-text-splitters==0.0.1
