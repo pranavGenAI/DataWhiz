@@ -28,7 +28,7 @@ def chat_with_csv(df,prompt):
 
 #-----------------------------------------------------Written response-----------------------------------------------------------------#
 
-def get_conversational_chain():
+# def get_conversational_chain():
     # prompt_template = """
     # Use the data provided and the user question to frame the answer as accurate as possible. Use the fromatting. If you can not find the relevant response then generate blank output. Do not give wrong asnwers.
     # Now answer the question using the provided information:
