@@ -11,14 +11,6 @@ from streamlit.components.v1 import html
 
 api_key = st.secrets['GEMINI_API_KEY']
 
-
-def chat_with_csv(df,prompt):
-    llm = GooglePalm(api_key=api_key)
-    pandas_ai = SmartDataframe(df, config={"llm": llm})
-    #pandas_ai = PandasAI(llm, save_charts=True)
-    result = pandas_ai.chat(prompt)
-    return result
-
 st.set_page_config(page_title="DataViz     ", layout='wide')
 background_html = """
 <!DOCTYPE html>
@@ -46,7 +38,7 @@ background_html = """
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const symbols = ['α', 'β', 'γ', 'δ', 'ζ', 'θ', 'λ', 'μ', 'π', 'σ', 'τ', 'φ', 'ω', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        const symbols = ['α', 'β', 'γ', 'δ', 'ζ', 'θ', 'λ', 'μ', 'π', 'σ', 'τ', 'φ', 'ω', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '=', 'x', '+', '%'];
         const numSymbols = 100;
         const glowDuration = 1000; // Glow duration in milliseconds
 
@@ -148,6 +140,16 @@ background_html = """
 </body>
 </html>
 """
+
+
+
+def chat_with_csv(df,prompt):
+    llm = GooglePalm(api_key=api_key)
+    pandas_ai = SmartDataframe(df, config={"llm": llm})
+    #pandas_ai = PandasAI(llm, save_charts=True)
+    result = pandas_ai.chat(prompt)
+    return result
+
 
 # Embed the HTML code into the Streamlit app
 st.components.v1.html(background_html, height=800)
