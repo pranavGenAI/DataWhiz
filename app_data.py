@@ -11,7 +11,7 @@ from streamlit.components.v1 import html
 import hashlib
 import json
 
-api_key = "AIzaSyCiPGxwD04JwxifewrYiqzufyd25VjKBkw"
+api_key = "AIzaSyAqziwvuuVrKAaME0VOHYTfkRzEowwAtzc"
 #st.secrets['GEMINI_API_KEY']
 
 st.set_page_config(page_title="DataViz", layout='wide')
